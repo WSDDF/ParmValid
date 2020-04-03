@@ -17,22 +17,17 @@ public class ValidatorUtils {
     }
 
     public static <T> void validate(T obj) {
-        System.out.println("ooooo");
         Set<ConstraintViolation<T>> constraintViolations = getValidator().validate(obj);
-        System.out.println("pppp");
         if (CollectionUtils.isEmpty(constraintViolations)) {
-            System.out.println("没有");
             return;
         }
-        System.out.println("进入");
         StringBuffer paramMsg = new StringBuffer();
         constraintViolations.forEach(violation -> {
             paramMsg.append(violation.getPropertyPath() + violation.getMessage()).append("；");
-                    System.out.println(paramMsg);
         }
 
         );
-        throw new ParamException(300);
+        throw new ParamException(300, paramMsg.toString());
     }
 
     private static Validator getValidator() {

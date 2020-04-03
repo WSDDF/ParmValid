@@ -12,7 +12,7 @@ public class ValidService {
     public OutPutParam validTest(InputParam inputParam) {
         System.out.println(inputParam.toString());
         OutPutParam outPutParam = new OutPutParam();
-        outPutParam.setCode(200);
+        outPutParam.setMessage("ok");
         return outPutParam;
     }
 }

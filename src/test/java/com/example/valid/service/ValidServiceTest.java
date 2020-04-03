@@ -18,6 +18,6 @@ public class ValidServiceTest {
         inputParam.setId(0);
         inputParam.setMobile("1");
         OutPutParam outPutParam = validService.validTest(inputParam);
-        System.out.println(outPutParam);
+//        return outPutParam;
     }
 }

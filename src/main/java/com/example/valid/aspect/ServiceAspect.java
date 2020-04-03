@@ -21,29 +21,14 @@ public class ServiceAspect extends BaseAspect {
     @Around("exeMethod()")
     public Object around(ProceedingJoinPoint pjp) throws Exception {
         Object[] params = pjp.getArgs();
-        // pjp.getArgs=[InputParam{id=0, mobile='12'}]
-        System.out.println("pjp.getArgs=" + Arrays.toString(params));
         try {
             this.paramValidate(params);
             return pjp.proceed();
         } catch (Throwable t) {
             Signature sig = pjp.getSignature();
-            System.out.println("sig");
-            // OutPutParam com.example.valid.service.ValidService.validTest(InputParam)
-            System.out.println(sig.toString());
-            // 1
-            System.out.println(sig.getModifiers());
-            // validTest
-            System.out.println(sig.getName());
-            // class com.example.valid.service.ValidService
-            System.out.println(sig.getDeclaringType());
             MethodSignature methodSignature = null;
             methodSignature = (MethodSignature) sig;
-            System.out.println(((MethodSignature) sig).getParameterTypes());
             Object target = pjp.getTarget();
-            System.out.println("target");
-            // com.example.valid.service.ValidService
-            System.out.println(target.getClass().getName());
             Method currentMethod = target.getClass().getMethod(methodSignature.getName(), methodSignature.getParameterTypes());
             return handleException(t, currentMethod, params);
         }
