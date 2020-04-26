@@ -17,7 +17,12 @@ public class ValidServiceTest {
         InputParam inputParam = new InputParam();
         inputParam.setId(0);
         inputParam.setMobile("1");
+        InputParam.Test1 test1 = new InputParam.Test1();
+        test1.setNum(0);
+        inputParam.setTest1(test1);
         OutPutParam outPutParam = validService.validTest(inputParam);
+
+//        System.out.println(outPutParam);
 //        return outPutParam;
     }
 }

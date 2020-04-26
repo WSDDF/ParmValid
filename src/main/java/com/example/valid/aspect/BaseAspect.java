@@ -30,6 +30,7 @@ public class BaseAspect {
 
         T response = (T) currentMethod.getReturnType().newInstance();
         response.setCfResult(cfResult);
+        System.out.println(response.toString());
         return response;
     }
 

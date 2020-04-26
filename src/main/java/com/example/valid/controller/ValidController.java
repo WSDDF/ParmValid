@@ -5,9 +5,7 @@ import com.example.valid.dao.InputParam;
 import com.example.valid.dao.OutPutParam;
 import com.example.valid.service.ValidService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "test")
@@ -15,8 +13,10 @@ public class ValidController {
     @Autowired
     private ValidService validService;
 
-    @GetMapping(value = "valid")
-    public OutPutParam valid(InputParam inputParam) {
+    @PostMapping(value = "valid")
+    public OutPutParam valid(@RequestBody InputParam inputParam) {
+        System.out.println(validService.testOther(inputParam.getTest1()));
+        System.out.println(inputParam.getTest1());
         return validService.validTest(inputParam);
     }
 

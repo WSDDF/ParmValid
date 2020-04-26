@@ -15,4 +15,8 @@ public class ValidService {
         outPutParam.setMessage("ok");
         return outPutParam;
     }
+
+    public OutPutParam testOther(InputParam.Test1 test1) {
+        return new OutPutParam();
+    }
 }
