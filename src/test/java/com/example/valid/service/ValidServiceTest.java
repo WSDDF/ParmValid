@@ -14,6 +14,7 @@ public class ValidServiceTest {
 
     @Test
     public void test() {
+        System.out.println("rebase master");
         InputParam inputParam = new InputParam();
         inputParam.setId(0);
         inputParam.setMobile("1");
